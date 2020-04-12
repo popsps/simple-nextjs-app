@@ -5,11 +5,11 @@ const fetch = require("node-fetch")
 const getRequest = (endpoint) => {
   return fetch(`/api/${endpoint}`)
       .then(res => res.json())
-      .then(data => console.log(data))
+      // .then(data => console.log(data))
 }
 const Home = () => {
   const user = getRequest('user')
-  console.log(user)
+  console.log("name:", user.name)
   return (
       <Layout>
         <main>
