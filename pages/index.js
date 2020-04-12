@@ -23,7 +23,7 @@ class Home extends React.Component {
   }
 
   render() {
-    const user = () => this.getRequest('user')
+    const user = () => {return this.getRequest('user')}
     console.log("name:", user)
     return (
         <Layout>
