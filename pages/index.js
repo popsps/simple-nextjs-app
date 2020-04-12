@@ -1,4 +1,5 @@
 import Layout from "../components/layout";
+const fetch = require("node-fetch")
 
 const getRequest = (endpoint) => {
   return fetch(`/api/${endpoint}`)
