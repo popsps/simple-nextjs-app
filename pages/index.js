@@ -1,9 +1,11 @@
 import Layout from "../components/layout";
+
 const fetch = require("node-fetch")
 
 const getRequest = (endpoint) => {
   return fetch(`/api/${endpoint}`)
       .then(res => res.json())
+      .then(data => console.log(data))
 }
 const Home = () => {
   const user = getRequest('user')
