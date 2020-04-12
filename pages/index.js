@@ -21,10 +21,12 @@ class Home extends React.Component {
           console.log("data:", data)
         })
   }
+  componentDidMount() {
+    const user = this.getRequest('user')
+    console.log("name:", user)
+  }
 
   render() {
-    const user = (e) => {return this.getRequest('user')}
-    console.log("name:", user)
     return (
         <Layout>
           <main>
