@@ -18,12 +18,12 @@ class Home extends React.Component {
         })
         .then(data => {
           this.setState({name: data.name})
-          console.log(data)
+          console.log("data:", data)
         })
   }
 
   render() {
-    const user = this.getRequest('user')
+    const user = () => this.getRequest('user')
     console.log("name:", user)
     return (
         <Layout>
