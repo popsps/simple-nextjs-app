@@ -11,7 +11,7 @@ class Home extends React.Component {
   }
 
   const
-  getRequest = (endpoint) => {
+  getRequest = async (endpoint) => {
     fetch(`/api/${endpoint}`)
         .then(res => {
           return res.json()
@@ -21,8 +21,9 @@ class Home extends React.Component {
           console.log("data:", data)
         })
   }
-  componentDidMount() {
-    const user = this.getRequest('user')
+
+  async componentDidMount() {
+    const user = await this.getRequest('user')
     console.log("name:", user)
   }
 
