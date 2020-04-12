@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 
 const getRequest = async (endpoint) => {
   const res = await fetch(`/api/${endpoint}`)
-  const data = await res.json()
+  return await res.json()
 }
 const Home = () => {
   const user = getRequest('user')
