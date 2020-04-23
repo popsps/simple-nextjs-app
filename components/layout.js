@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navigation from "./navigation";
-import styles from '../styles/layout.module.css'
+import styles from './styles/layout.module.css'
 const Layout = (props) => {
   return (
       <div>
