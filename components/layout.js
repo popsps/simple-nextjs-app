@@ -1,5 +1,6 @@
 import Head from "next/head";
-
+import Navigation from "./navigation";
+import styles from '../styles/layout.module.css'
 const Layout = (props) => {
   return (
       <div>
@@ -7,7 +8,8 @@ const Layout = (props) => {
           <title>Simple Next App Demo</title>
           <link rel="icon" href="./favicon.ico"/>
         </Head>
-        <div className='container'>
+        <Navigation/>
+        <div className={`container ${styles.container}` }>
           {props.children}
         </div>
       </div>
