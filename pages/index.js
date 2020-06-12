@@ -1,5 +1,8 @@
 import Layout from "../components/layout";
 import React from 'react'
+import {getSortedPostsData} from '../lib/posts'
+import Link from 'next/link'
+import Date from '../components/date'
 
 const fetch = require("node-fetch")
 
@@ -35,14 +38,37 @@ class Home extends React.Component {
   }
 
   render() {
+    const allPostsData = this.props.allPostsData;
     return (
         <Layout>
           <main>
-            <h1 className="title">
-              Welcome to Simple Next.js app
-            </h1>
-            <p>Hello {this.state.name}</p>
+            <div className="jumbotron">
+              <h1 className="title">
+                Welcome to Simple Next.js app
+              </h1>
+              <p className='m-5 text-center'>Hello {this.state.name}</p>
+            </div>
           </main>
+          <div className="jumbotron">
+            <section>
+              {allPostsData.map(({id, date, title}) => {
+                console.log('id:', id);
+                return (
+                    <ul>
+                      <li key={id}>
+                        <Link href='/posts/[id]' as={`/posts/${id}`}>
+                          <a className='text-warning btn-link'>{title}</a>
+                        </Link>
+                        <br/>
+                        <p>
+                          <Date dateString={date}/>
+                        </p>
+                      </li>
+                    </ul>)
+              })}
+            </section>
+          </div>
+
           <style jsx>{`
       .container {
         min-height: 100vh;
@@ -186,5 +212,19 @@ class Home extends React.Component {
     )
   }
 }
+
+// This function gets called at build time on server-side.
+// It won't be called on client-side, so you can even do
+// direct database queries. See the "Technical details" section.
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData
+    }
+  }
+}
+
+
 
 export default Home

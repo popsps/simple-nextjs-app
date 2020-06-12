@@ -12,10 +12,21 @@ class About extends React.Component {
     return (
         <Layout>
           <main>
-            <h1 className='my-3' >About</h1>
+            <div className="jumbotron">
+              <h1 className='my-3'>About</h1>
+              <p className='m-5 text-center'>{this.props.serverName}</p>
+            </div>
           </main>
         </Layout>
     )
+  }
+}
+
+export async function getServerSideProps(context) {
+  return {
+    props: {
+      serverName: "Br Goo"
+    }
   }
 }
 

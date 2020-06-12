@@ -1,5 +1,9 @@
 .container {
-  background-color: #0c6251;
+  background-color: #c6e2f5;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin: auto;
 }
 
 /*# sourceMappingURL=layout.module.css.map */
